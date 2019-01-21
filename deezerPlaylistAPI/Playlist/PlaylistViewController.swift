@@ -99,12 +99,7 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
         }
         
-//        presenter.getPlaylists(userId: userID) { (datas) in
-//            if let receivedPlaylists = datas{
-//                self.playlist = receivedPlaylists
-//                self.tableView.reloadData()
-//            }
-//        }
+
     }
     
 

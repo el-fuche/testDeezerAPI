@@ -49,13 +49,15 @@ class SongsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func getSongs(playlistID:String){
         if let pid = self.playlistID{
-            presenter.getSongs(playlistID: pid) { (songs) in
+            presenter.getRXSongs(pid: pid, songsArray: { (songs) in
                 if let receivedSongs = songs{
                     self.songs = receivedSongs
                     self.tableView.reloadData()
                 }
-            }
+            })
         }
+        
+        
     }
     
     

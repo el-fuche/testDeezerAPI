@@ -33,6 +33,33 @@ class Manager: NSObject {
         }
     }
     
+    func getRxSongsFromPlaylist(playlistID:String)-> Observable<[Song]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request("\(Constants.baseURL)/playlist/\(playlistID)/tracks", method: .get)
+                .validate(statusCode: 200..<300)
+                .responseJSON { response in
+                    
+                    switch response.result{
+                    case.success(let value):
+                        let songs = self.setSongs(datas: (value as? [String:Any])!)
+                        observer.onNext(songs)
+                    case.failure(let error):
+                        if let statusCode = response.response?.statusCode,
+                            let reason = GetFriendsFailureReason(rawValue: statusCode)
+                        {
+                            observer.onError(reason)
+                        }
+                        observer.onError(error)
+                    }
+            }
+            
+            return Disposables.create()
+            
+        }
+        
+        
+    }
+    
     func getRxPlaylist(userID:String)-> Observable<[Playlist]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request("\(Constants.baseURL)/user/\(userID)/playlists", method: .get)

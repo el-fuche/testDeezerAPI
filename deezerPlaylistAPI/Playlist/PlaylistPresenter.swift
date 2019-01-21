@@ -47,10 +47,7 @@ class PlaylistPresenter {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         if let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SongsViewController") as? SongsViewController{
             nextViewController.playlistID = playlistID
-//            controller?.present(nextViewController, animated:true, completion:nil)
             controller?.navigationController?.pushViewController(nextViewController, animated: true)
-//            controller?.present(nextViewController, animated: true, completion: nil)
-            //            nextViewController.presen
         }
         
     }

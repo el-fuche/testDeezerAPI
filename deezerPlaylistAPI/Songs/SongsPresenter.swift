@@ -29,6 +29,20 @@ class SongsPresenter {
         })
     }
     
+    func getRXSongs(pid:String,songsArray:@escaping ([Song]?) -> ()){
+        Manager.instance.getRxSongsFromPlaylist(playlistID: pid)
+            .subscribe(
+                onNext: { songsReceived in
+                    print(songsReceived)
+                    self.songs = songsReceived
+                    songsArray(self.songs)
+            },
+                onError: { error in
+                    print(error)
+            }
+            ).disposed(by: disposeBag)
+    }
+    
     func getFormattedTime(totalTime:Int)->(minutes:Int,seconds:Int){
        return Manager.instance.getFormattedVideoTime(totalVideoDuration: totalTime)
     }

@@ -140,6 +140,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		208EC49F21F5F742007D0123 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2082438221F58C500006B17F /* SongTableViewCell.swift */,
+				2082438321F58C500006B17F /* SongTableViewCell.xib */,
+				206A8A0321F4EA2D00E0A3BF /* PlaylistTableViewCell.swift */,
+				206A8A0421F4EA2D00E0A3BF /* PlaylistTableViewCell.xib */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		20BEEBED21F5703A00C5FE4C /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,11 +203,8 @@
 				20BEEBEE21F5704000C5FE4C /* Songs */,
 				20F118FC21F4C2BF00C20B33 /* Manager.swift */,
 				20F118C721F4BD8A00C20B33 /* ViewController.swift */,
+				208EC49F21F5F742007D0123 /* Custom Cells */,
 				20F118C921F4BD8A00C20B33 /* Main.storyboard */,
-				2082438221F58C500006B17F /* SongTableViewCell.swift */,
-				2082438321F58C500006B17F /* SongTableViewCell.xib */,
-				206A8A0321F4EA2D00E0A3BF /* PlaylistTableViewCell.swift */,
-				206A8A0421F4EA2D00E0A3BF /* PlaylistTableViewCell.xib */,
 				20F118CF21F4BD8A00C20B33 /* Assets.xcassets */,
 				20F118D121F4BD8A00C20B33 /* LaunchScreen.storyboard */,
 				20F118D421F4BD8A00C20B33 /* Info.plist */,
