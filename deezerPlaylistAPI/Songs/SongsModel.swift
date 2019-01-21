@@ -9,6 +9,6 @@
 import Foundation
 
 struct Song : Decodable{
-    let duration : String
+    let duration : Int
     let title : String
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		206A8A0521F4EA2D00E0A3BF /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A8A0321F4EA2D00E0A3BF /* PlaylistTableViewCell.swift */; };
 		206A8A0621F4EA2D00E0A3BF /* PlaylistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 206A8A0421F4EA2D00E0A3BF /* PlaylistTableViewCell.xib */; };
+		2082438421F58C500006B17F /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2082438221F58C500006B17F /* SongTableViewCell.swift */; };
+		2082438521F58C500006B17F /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2082438321F58C500006B17F /* SongTableViewCell.xib */; };
 		20BEEBE821F56FF900C5FE4C /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEEBE721F56FF900C5FE4C /* SongsViewController.swift */; };
 		20BEEBEA21F5701000C5FE4C /* SongsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEEBE921F5701000C5FE4C /* SongsModel.swift */; };
 		20BEEBEC21F5703500C5FE4C /* SongsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEEBEB21F5703500C5FE4C /* SongsPresenter.swift */; };
@@ -52,6 +54,8 @@
 		0EFB3C0F89365070B5AFCB6E /* Pods_deezerPlaylistAPIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deezerPlaylistAPIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		206A8A0321F4EA2D00E0A3BF /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		206A8A0421F4EA2D00E0A3BF /* PlaylistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistTableViewCell.xib; sourceTree = "<group>"; };
+		2082438221F58C500006B17F /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		2082438321F58C500006B17F /* SongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
 		20BEEBE721F56FF900C5FE4C /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
 		20BEEBE921F5701000C5FE4C /* SongsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsModel.swift; sourceTree = "<group>"; };
 		20BEEBEB21F5703500C5FE4C /* SongsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsPresenter.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				20F118FC21F4C2BF00C20B33 /* Manager.swift */,
 				20F118C721F4BD8A00C20B33 /* ViewController.swift */,
 				20F118C921F4BD8A00C20B33 /* Main.storyboard */,
+				2082438221F58C500006B17F /* SongTableViewCell.swift */,
+				2082438321F58C500006B17F /* SongTableViewCell.xib */,
 				206A8A0321F4EA2D00E0A3BF /* PlaylistTableViewCell.swift */,
 				206A8A0421F4EA2D00E0A3BF /* PlaylistTableViewCell.xib */,
 				20F118CF21F4BD8A00C20B33 /* Assets.xcassets */,
@@ -328,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2082438521F58C500006B17F /* SongTableViewCell.xib in Resources */,
 				20F118D321F4BD8A00C20B33 /* LaunchScreen.storyboard in Resources */,
 				20F118D021F4BD8A00C20B33 /* Assets.xcassets in Resources */,
 				20F118CB21F4BD8A00C20B33 /* Main.storyboard in Resources */,
@@ -449,6 +456,7 @@
 				206A8A0521F4EA2D00E0A3BF /* PlaylistTableViewCell.swift in Sources */,
 				20BEEBEC21F5703500C5FE4C /* SongsPresenter.swift in Sources */,
 				20F118C621F4BD8A00C20B33 /* AppDelegate.swift in Sources */,
+				2082438421F58C500006B17F /* SongTableViewCell.swift in Sources */,
 				20F118CE21F4BD8A00C20B33 /* deezerPlaylistAPI.xcdatamodeld in Sources */,
 				20F118FD21F4C2BF00C20B33 /* Manager.swift in Sources */,
 				20F1190721F4CD7C00C20B33 /* Constants.swift in Sources */,

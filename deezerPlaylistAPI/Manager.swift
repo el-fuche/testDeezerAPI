@@ -18,6 +18,21 @@ class Manager: NSObject {
     
     static let instance = Manager()
     
+    func getSongsFromPlaylist(playlistID:String,datas: @escaping ([Song]?,Error?) -> ()){
+        Alamofire.request("\(Constants.baseURL)/playlist/\(playlistID)/tracks", method: .get)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                
+                switch response.result{
+                case.success(let value):
+                    datas(self.setSongs(datas: (value as? [String:Any])!), nil)
+                case.failure(let error):
+                    datas(nil,error)
+                    
+                }
+        }
+    }
+    
     func getRxPlaylist(userID:String)-> Observable<[Playlist]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request("\(Constants.baseURL)/user/\(userID)/playlists", method: .get)
@@ -65,9 +80,9 @@ class Manager: NSObject {
         let pl = datas["data"] as! [[String:Any]]
         for data in pl{
             print(data)
-            if let picURL = data["picture"] as? String, let title = data["title"]as? String,let nb_tracks = data["nb_tracks"]as? Int, let creation_date = data["creation_date"]as? String,let owner = data["creator"] as? [String:Any],let id = data["id"] as? NSNumber
+            if let picURL = data["picture"] as? String, let title = data["title"]as? String,let nb_tracks = data["nb_tracks"]as? Int, let creation_date = data["creation_date"]as? String,let owner = data["creator"] as? [String:Any],let identifiant = data["id"] as? NSNumber
                 {
-                    let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : id.intValue)
+                    let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : "\(identifiant)")
                 playlists.append(playlist)
                 
             }
@@ -76,6 +91,25 @@ class Manager: NSObject {
         }
         
         return playlists
+    }
+    
+    func setSongs(datas:[String:Any])->[Song]{
+        var songs = [Song]()
+        let sgs = datas["data"] as! [[String:Any]]
+        for data in sgs{
+            print(data)
+            if let title = data["title"] as? String, let duration = data["duration"]as? Int
+            {
+//                let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : id.intValue)
+//                playlists.append(playlist)
+                let song = Song(duration: duration, title: title)
+                songs.append(song)
+            }
+            //
+            
+        }
+        
+        return songs
     }
 }
 
