@@ -45,7 +45,7 @@
                     <connections>
                         <outlet property="tableView" destination="U1m-8h-A7v" id="yG3-mr-Ij5"/>
                         <outlet property="userIDTextField" destination="5Jm-LL-nbs" id="nlA-po-alH"/>
-                        <segue destination="dd4-87-3yb" kind="show" id="lav-wY-QPc"/>
+                        <segue destination="dd4-87-3yb" kind="show" identifier="toDetailsView" id="lav-wY-QPc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRH-G5-1aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
