@@ -32,6 +32,7 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.userIDTextField.delegate = self
         self.userIDTextField.returnKeyType = .search
         self.userIDTextField.clearButtonMode = .unlessEditing
+        self.userIDTextField.placeholder = "Enter user id"
         // Do any additional setup after loading the view.
     }
 
