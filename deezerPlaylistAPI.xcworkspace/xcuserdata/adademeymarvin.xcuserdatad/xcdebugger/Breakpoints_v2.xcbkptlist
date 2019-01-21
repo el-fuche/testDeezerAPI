@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Manager.swift"
-            timestampString = "569770754.952745"
+            timestampString = "569773025.1972769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Manager.swift"
-            timestampString = "569770754.952961"
+            timestampString = "569773025.199526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -132,12 +132,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Manager.swift"
-            timestampString = "569770754.953137"
+            timestampString = "569773025.200007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "getRxPlaylist(userID:)"
+            landmarkName = "getRxPlaylist(playlistID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -148,12 +148,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Manager.swift"
-            timestampString = "569770754.953215"
+            timestampString = "569773025.200094"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "getRxPlaylist(userID:)"
+            landmarkName = "getRxPlaylist(playlistID:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Manager.swift"
-            timestampString = "569770754.9533269"
+            timestampString = "569773025.2002029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
@@ -244,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Playlist/PlaylistViewController.swift"
-            timestampString = "569770754.953452"
+            timestampString = "569773025.2003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Playlist/PlaylistPresenter.swift"
-            timestampString = "569770754.953595"
+            timestampString = "569773025.2039419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "goToSelectedPlaylist(playlistID:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,29 +276,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "deezerPlaylistAPI/Songs/SongsViewController.swift"
-            timestampString = "569770754.953686"
+            timestampString = "569773025.204132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "deezerPlaylistAPI/Songs/SongsViewController.swift"
-            timestampString = "569770754.953751"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "SongsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

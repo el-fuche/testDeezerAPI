@@ -17,33 +17,40 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var playlistID:String?
     var playlist = [Playlist]()
     var presenter = PlaylistPresenter()
+    var tapGesture = UITapGestureRecognizer()
+
+    
+    //MARK: - Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = presenter.getTitle()
+
         setTableView()
         presenter.attachController(controllerToAttach: self)
         getPlaylists(userID: Constants.MarvinID)
-        self.userIDTextField.delegate = self
-        self.userIDTextField.returnKeyType = .search
-        self.userIDTextField.clearButtonMode = .unlessEditing
-        self.userIDTextField.placeholder = "Enter user id"
-        // Do any additional setup after loading the view.
+        setTextField()
+
+       
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playlist.count
-    }
-    
+    //MARK: - Set TableView
     func setTableView(){
         tableView.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: "playlistCell")
         
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    //MARK: - Table View delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return playlist.count
+    }
+    
+   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playlistCell", for: indexPath) as! PlaylistTableViewCell
@@ -72,6 +79,7 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
     }
     
+    //MARK: - Textfield delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let selectedUserId = textField.text, selectedUserId.count > 0{
@@ -84,26 +92,30 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return true
     }
     
+    //MARK: - Other methods
+    /// To get thw playlist from a user
+    ///
+    /// - Parameter userID: Deezer userID
     func getPlaylists(userID:String){
-        presenter.getRXPlaylist(uid: userID) { (datas) in
+        presenter.getRXPlaylist(pid: userID) { (datas) in
             if let receivedPlaylists = datas{
                 self.playlist = receivedPlaylists
                 self.tableView.reloadData()
             }
         }
-        
-        
     }
     
+    func setTextField(){
+        self.userIDTextField.delegate = self
+        self.userIDTextField.returnKeyType = .search
+        self.userIDTextField.clearButtonMode = .unlessEditing
+        self.userIDTextField.placeholder = "Enter user id, mine by default"
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        userIDTextField.resignFirstResponder()
+    }
 }

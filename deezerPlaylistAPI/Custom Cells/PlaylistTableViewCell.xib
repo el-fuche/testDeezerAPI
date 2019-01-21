@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,8 +23,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wHE-ow-lOz">
                         <rect key="frame" x="63" y="86" width="195" height="195"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="195" id="J1f-Ah-ZSB"/>
-                            <constraint firstAttribute="height" constant="195" id="ub1-VL-iRT"/>
+                            <constraint firstAttribute="width" secondItem="wHE-ow-lOz" secondAttribute="height" multiplier="1:1" id="dgO-25-kNd"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R4-9f-cgU">
@@ -58,6 +58,7 @@
                     <constraint firstItem="khI-da-Ltw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="Gt3-IE-SGi"/>
                     <constraint firstItem="wHE-ow-lOz" firstAttribute="centerX" secondItem="F90-pA-fZT" secondAttribute="centerX" id="HFP-zR-15m"/>
                     <constraint firstItem="F90-pA-fZT" firstAttribute="centerX" secondItem="1R4-9f-cgU" secondAttribute="centerX" id="Hc5-BL-vrw"/>
+                    <constraint firstAttribute="trailing" secondItem="wHE-ow-lOz" secondAttribute="trailing" constant="62" id="O7M-42-CCi"/>
                     <constraint firstItem="khI-da-Ltw" firstAttribute="top" secondItem="wHE-ow-lOz" secondAttribute="bottom" constant="7" id="UHF-Tp-zeA"/>
                     <constraint firstItem="1R4-9f-cgU" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VMB-Bo-kH3"/>
                     <constraint firstItem="wHE-ow-lOz" firstAttribute="top" secondItem="F90-pA-fZT" secondAttribute="bottom" constant="14" id="Z7O-eJ-ke8"/>

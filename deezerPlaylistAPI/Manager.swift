@@ -17,7 +17,7 @@ class Manager: NSObject {
     }
     
     static let instance = Manager()
-  
+    
     //MARK: - RX methods
     func getRxSongsFromPlaylist(playlistID:String)-> Observable<[Song]> {
         return Observable.create { observer -> Disposable in
@@ -43,12 +43,12 @@ class Manager: NSObject {
         }
     }
     
-    func getRxPlaylist(userID:String)-> Observable<[Playlist]> {
+    func getRxPlaylist(playlistID:String)-> Observable<[Playlist]> {
         return Observable.create { observer -> Disposable in
-            Alamofire.request("\(Constants.baseURL)/user/\(userID)/playlists", method: .get)
+            Alamofire.request("\(Constants.baseURL)/user/\(playlistID)/playlists", method: .get)
                 .validate(statusCode: 200..<300)
                 .responseJSON { response in
-
+                    
                     switch response.result{
                     case.success(let value):
                         let plists = self.setPlaylists(datas: (value as? [String:Any])!)
@@ -103,8 +103,8 @@ class Manager: NSObject {
         for data in pl{
             print(data)
             if let picURL = data["picture"] as? String, let title = data["title"]as? String,let nb_tracks = data["nb_tracks"]as? Int, let creation_date = data["creation_date"]as? String,let owner = data["creator"] as? [String:Any],let identifiant = data["id"] as? NSNumber
-                {
-                    let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : "\(identifiant)")
+            {
+                let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : "\(identifiant)")
                 playlists.append(playlist)
                 
             }
@@ -126,7 +126,11 @@ class Manager: NSObject {
         }
         return songs
     }
-    
+    //MARK: - Other methods
+    /// Get the time in readable format
+    ///
+    /// - Parameter totalVideoDuration: the duration of the song, in seconds
+    /// - Returns: the duration, separated
     func getFormattedVideoTime(totalVideoDuration: Int) -> ( minutes: Int, seconds: Int){
         let seconds = totalVideoDuration % 60
         let minutes = (totalVideoDuration / 60) % 60

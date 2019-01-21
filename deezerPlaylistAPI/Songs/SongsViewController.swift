@@ -13,20 +13,23 @@ class SongsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     let tableView = UITableView()
     var presenter = SongsPresenter()
     var songs = [Song]()
+    
+    //MARK: - Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = presenter.getTitle()
         setTableView()
         if let pid = playlistID{
             getSongs(playlistID: pid)
         }
-        // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - Table View delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
@@ -39,6 +42,7 @@ class SongsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         return cell
     }
     
+    //MARK: - Other methods
     func setTableView(){
         tableView.register(UINib(nibName: "SongTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.frame = self.view.frame
@@ -47,6 +51,9 @@ class SongsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.dataSource = self
     }
     
+    /// Methods to get sons from playlist
+    ///
+    /// - Parameter playlistID: deezer playlistID
     func getSongs(playlistID:String){
         if let pid = self.playlistID{
             presenter.getRXSongs(pid: pid, songsArray: { (songs) in

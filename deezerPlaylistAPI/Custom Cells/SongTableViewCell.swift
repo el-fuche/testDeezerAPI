@@ -12,6 +12,7 @@ class SongTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.detailTextLabel?.textColor = UIColor.lightGray
         // Initialization code
     }
 

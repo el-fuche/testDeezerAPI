@@ -14,8 +14,18 @@ class SongsPresenter {
     let disposeBag = DisposeBag()
     var controller : SongsViewController?
     
+    /// To bind the presenter to the view controller
+    ///
+    /// - Parameter controllerToAttach: controller to bind
     func attachController(controllerToAttach:SongsViewController){
         self.controller = controllerToAttach
+    }
+    
+    /// To return the title on the view controller
+    ///
+    /// - Returns: the title
+    func getTitle()->String{
+        return "Albums"
     }
     
     func getSongs(playlistID:String,songsArray:@escaping ([Song]?) -> ()){
@@ -29,6 +39,11 @@ class SongsPresenter {
         })
     }
     
+    /// Get songs the "RX way"
+    ///
+    /// - Parameters:
+    ///   - pid: playlistID
+    ///   - songsArray: array To store the songs
     func getRXSongs(pid:String,songsArray:@escaping ([Song]?) -> ()){
         Manager.instance.getRxSongsFromPlaylist(playlistID: pid)
             .subscribe(
