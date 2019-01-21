@@ -14,11 +14,13 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     var userID:String?
+    var playlistID:String?
     var playlist = [Playlist]()
     var presenter = PlaylistPresenter()
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        presenter.attachController(controllerToAttach: self)
     
 //        presenter.getPlaylists(userId: Constants.MarvinID) { (datas) in
 //            if let receivedPlaylists = datas{
@@ -55,6 +57,7 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell.numberOfSongs.text = String(playlist[indexPath.row].numberOfSongs)
         cell.playlistOwner.text = playlist[indexPath.row].owner
         cell.playlistTitle.text = playlist[indexPath.row].title
+        cell.songID = String(playlist[indexPath.row].id)
         cell.playlistPic.af_setImage(withURL: URL(string:playlist[indexPath.row].pictureURL)!, placeholderImage: UIImage(named: "Placeholder"))
         
         return cell
@@ -62,6 +65,12 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 320
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedCell = tableView.cellForRow(at: indexPath) as? PlaylistTableViewCell{
+            presenter.goToSelectedPlaylist(playlistID: selectedCell.songID!)
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

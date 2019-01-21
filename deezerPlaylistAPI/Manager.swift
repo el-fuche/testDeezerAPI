@@ -65,8 +65,9 @@ class Manager: NSObject {
         let pl = datas["data"] as! [[String:Any]]
         for data in pl{
             print(data)
-            if let picURL = data["picture"] as? String, let title = data["title"]as? String,let nb_tracks = data["nb_tracks"]as? Int, let creation_date = data["creation_date"]as? String,let owner = data["creator"] as? [String:Any]{
-                let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String)
+            if let picURL = data["picture"] as? String, let title = data["title"]as? String,let nb_tracks = data["nb_tracks"]as? Int, let creation_date = data["creation_date"]as? String,let owner = data["creator"] as? [String:Any],let id = data["id"] as? NSNumber
+                {
+                    let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : id.intValue)
                 playlists.append(playlist)
                 
             }

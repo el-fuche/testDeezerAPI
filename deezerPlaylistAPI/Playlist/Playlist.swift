@@ -14,4 +14,5 @@ struct Playlist : Decodable{
     let numberOfSongs : Int
     let creationDate : String
     let owner : String
+    let id : Int
 }

@@ -14,7 +14,7 @@ class PlaylistTableViewCell: UITableViewCell {
     @IBOutlet weak var playlistPic: UIImageView!
     @IBOutlet weak var creationDate: UILabel!
     @IBOutlet weak var numberOfSongs: UILabel!
-    
+    var songID : String?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
