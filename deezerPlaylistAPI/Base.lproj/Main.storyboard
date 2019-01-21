@@ -83,11 +83,11 @@
             </objects>
             <point key="canvasLocation" x="4881" y="132"/>
         </scene>
-        <!--Item-->
+        <!--Playlists-->
         <scene sceneID="boV-XR-fxx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6rU-52-dCP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tIq-3t-Dr0"/>
+                    <tabBarItem key="tabBarItem" title="Playlists" image="musical_notes" id="tIq-3t-Dr0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hwV-Wu-EQp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -102,11 +102,11 @@
             </objects>
             <point key="canvasLocation" x="2321" y="1233"/>
         </scene>
-        <!--Item-->
+        <!--Albums-->
         <scene sceneID="KUb-Gr-ieb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uYD-ge-sdE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dIB-pw-f0n"/>
+                    <tabBarItem key="tabBarItem" title="Albums" image="music_library" id="dIB-pw-f0n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l4H-xI-OcH">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -141,4 +141,8 @@
             <point key="canvasLocation" x="1851.2" y="132.23388305847078"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="music_library" width="30" height="30"/>
+        <image name="musical_notes" width="30" height="30"/>
+    </resources>
 </document>

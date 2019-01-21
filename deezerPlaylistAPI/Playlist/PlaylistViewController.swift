@@ -21,13 +21,6 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         setTableView()
         presenter.attachController(controllerToAttach: self)
-        
-        //        presenter.getPlaylists(userId: Constants.MarvinID) { (datas) in
-        //            if let receivedPlaylists = datas{
-        //                self.playlist = receivedPlaylists
-        //                self.tableView.reloadData()
-        //            }
-        //        }
         getPlaylists(userID: Constants.MarvinID)
         self.userIDTextField.delegate = self
         self.userIDTextField.returnKeyType = .search
@@ -55,8 +48,8 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playlistCell", for: indexPath) as! PlaylistTableViewCell
         cell.creationDate.text = playlist[indexPath.row].creationDate
-        cell.numberOfSongs.text = String(playlist[indexPath.row].numberOfSongs)
-        cell.playlistOwner.text = playlist[indexPath.row].owner
+        cell.numberOfSongs.text = "\(String(playlist[indexPath.row].numberOfSongs)) songs"
+        cell.playlistOwner.text = "By \(playlist[indexPath.row].owner)"
         cell.playlistTitle.text = playlist[indexPath.row].title
         cell.songID = String(playlist[indexPath.row].id)
         cell.playlistPic.af_setImage(withURL: URL(string:playlist[indexPath.row].pictureURL)!, placeholderImage: UIImage(named: "Placeholder"))
