@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import UIKit
+
 class PlaylistPresenter {
     var playlists = [Playlist]()
     let disposeBag = DisposeBag()
@@ -15,6 +17,14 @@ class PlaylistPresenter {
     
     func attachController(controllerToAttach:PlaylistViewController){
         self.controller = controllerToAttach
+    }
+    
+    func getAlert(){
+        let alert = UIAlertController(title: nil, message: "No songs in this playlist yes.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        if let attachedController = controller{
+            attachedController.present(alert, animated: true, completion: nil)
+        }
     }
     
     func getPlaylists(userId:String,playlistArray:@escaping ([Playlist]?) -> ()){

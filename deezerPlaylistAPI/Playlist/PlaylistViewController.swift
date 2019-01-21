@@ -21,13 +21,13 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         setTableView()
         presenter.attachController(controllerToAttach: self)
-    
-//        presenter.getPlaylists(userId: Constants.MarvinID) { (datas) in
-//            if let receivedPlaylists = datas{
-//                self.playlist = receivedPlaylists
-//                self.tableView.reloadData()
-//            }
-//        }
+        
+        //        presenter.getPlaylists(userId: Constants.MarvinID) { (datas) in
+        //            if let receivedPlaylists = datas{
+        //                self.playlist = receivedPlaylists
+        //                self.tableView.reloadData()
+        //            }
+        //        }
         getPlaylists(userID: Constants.MarvinID)
         self.userIDTextField.delegate = self
         self.userIDTextField.returnKeyType = .search
@@ -35,7 +35,7 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.userIDTextField.placeholder = "Enter user id"
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,7 +47,7 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func setTableView(){
         tableView.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: "playlistCell")
-
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -70,12 +70,13 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedCell = tableView.cellForRow(at: indexPath) as? PlaylistTableViewCell{
-            presenter.goToSelectedPlaylist(playlistID: selectedCell.songID!)
+            if selectedCell.numberOfSongs.text != "0"{
+                presenter.goToSelectedPlaylist(playlistID: selectedCell.songID!)
+            }
+            else{
+                presenter.getAlert()
+            }
         }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-       
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -83,7 +84,6 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
         if let selectedUserId = textField.text, selectedUserId.count > 0{
             userID = selectedUserId
             getPlaylists(userID: userID!)
-            //Relancer l'url
         }
         else{
             getPlaylists(userID: Constants.MarvinID)
@@ -99,18 +99,18 @@ class PlaylistViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
         }
         
-
+        
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

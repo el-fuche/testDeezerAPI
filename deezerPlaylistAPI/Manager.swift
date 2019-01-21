@@ -17,22 +17,8 @@ class Manager: NSObject {
     }
     
     static let instance = Manager()
-    
-    func getSongsFromPlaylist(playlistID:String,datas: @escaping ([Song]?,Error?) -> ()){
-        Alamofire.request("\(Constants.baseURL)/playlist/\(playlistID)/tracks", method: .get)
-            .validate(statusCode: 200..<300)
-            .responseJSON { response in
-                
-                switch response.result{
-                case.success(let value):
-                    datas(self.setSongs(datas: (value as? [String:Any])!), nil)
-                case.failure(let error):
-                    datas(nil,error)
-                    
-                }
-        }
-    }
-    
+  
+    //MARK: - RX methods
     func getRxSongsFromPlaylist(playlistID:String)-> Observable<[Song]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request("\(Constants.baseURL)/playlist/\(playlistID)/tracks", method: .get)
@@ -52,12 +38,9 @@ class Manager: NSObject {
                         observer.onError(error)
                     }
             }
-            
             return Disposables.create()
             
         }
-        
-        
     }
     
     func getRxPlaylist(userID:String)-> Observable<[Playlist]> {
@@ -79,22 +62,33 @@ class Manager: NSObject {
                         observer.onError(error)
                     }
             }
-            
             return Disposables.create()
-            
         }
-        
-        
     }
     
+    //MARK: - "Classic" methods
     func getUserPlaylists(userID:String,datas: @escaping ([Playlist]?,Error?) -> ()){
         Alamofire.request("\(Constants.baseURL)/user/\(userID)/playlists", method: .get)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result{
+                case.success(let value):
+                    datas(self.setPlaylists(datas: (value as? [String:Any])!), nil)
+                case.failure(let error):
+                    datas(nil,error)
+                }
+        }
+    }
+    
+    
+    func getSongsFromPlaylist(playlistID:String,datas: @escaping ([Song]?,Error?) -> ()){
+        Alamofire.request("\(Constants.baseURL)/playlist/\(playlistID)/tracks", method: .get)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
                 
                 switch response.result{
                 case.success(let value):
-                    datas(self.setPlaylists(datas: (value as? [String:Any])!), nil)
+                    datas(self.setSongs(datas: (value as? [String:Any])!), nil)
                 case.failure(let error):
                     datas(nil,error)
                     
@@ -102,6 +96,7 @@ class Manager: NSObject {
         }
     }
     
+    //MARK: - Set methods
     func setPlaylists(datas:[String:Any])->[Playlist]{
         var playlists = [Playlist]()
         let pl = datas["data"] as! [[String:Any]]
@@ -113,8 +108,6 @@ class Manager: NSObject {
                 playlists.append(playlist)
                 
             }
-            //
-            
         }
         
         return playlists
@@ -127,15 +120,10 @@ class Manager: NSObject {
             print(data)
             if let title = data["title"] as? String, let duration = data["duration"]as? Int
             {
-//                let playlist = Playlist(pictureURL:picURL , title: title, numberOfSongs: nb_tracks, creationDate: creation_date, owner: owner["name"] as! String,id : id.intValue)
-//                playlists.append(playlist)
                 let song = Song(duration: duration, title: title)
                 songs.append(song)
             }
-            //
-            
         }
-        
         return songs
     }
     

@@ -15,7 +15,6 @@
 		20BEEBEA21F5701000C5FE4C /* SongsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEEBE921F5701000C5FE4C /* SongsModel.swift */; };
 		20BEEBEC21F5703500C5FE4C /* SongsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEEBEB21F5703500C5FE4C /* SongsPresenter.swift */; };
 		20F118C621F4BD8A00C20B33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F118C521F4BD8A00C20B33 /* AppDelegate.swift */; };
-		20F118C821F4BD8A00C20B33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F118C721F4BD8A00C20B33 /* ViewController.swift */; };
 		20F118CB21F4BD8A00C20B33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F118C921F4BD8A00C20B33 /* Main.storyboard */; };
 		20F118CE21F4BD8A00C20B33 /* deezerPlaylistAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20F118CC21F4BD8A00C20B33 /* deezerPlaylistAPI.xcdatamodeld */; };
 		20F118D021F4BD8A00C20B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F118CF21F4BD8A00C20B33 /* Assets.xcassets */; };
@@ -61,7 +60,6 @@
 		20BEEBEB21F5703500C5FE4C /* SongsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsPresenter.swift; sourceTree = "<group>"; };
 		20F118C221F4BD8A00C20B33 /* deezerPlaylistAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deezerPlaylistAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20F118C521F4BD8A00C20B33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		20F118C721F4BD8A00C20B33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		20F118CA21F4BD8A00C20B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20F118CD21F4BD8A00C20B33 /* deezerPlaylistAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = deezerPlaylistAPI.xcdatamodel; sourceTree = "<group>"; };
 		20F118CF21F4BD8A00C20B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -198,11 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				20F118C521F4BD8A00C20B33 /* AppDelegate.swift */,
-				20BEEBED21F5703A00C5FE4C /* Playlist */,
 				20F1190621F4CD7C00C20B33 /* Constants.swift */,
-				20BEEBEE21F5704000C5FE4C /* Songs */,
 				20F118FC21F4C2BF00C20B33 /* Manager.swift */,
-				20F118C721F4BD8A00C20B33 /* ViewController.swift */,
+				20BEEBED21F5703A00C5FE4C /* Playlist */,
+				20BEEBEE21F5704000C5FE4C /* Songs */,
 				208EC49F21F5F742007D0123 /* Custom Cells */,
 				20F118C921F4BD8A00C20B33 /* Main.storyboard */,
 				20F118CF21F4BD8A00C20B33 /* Assets.xcassets */,
@@ -455,7 +452,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				20BEEBE821F56FF900C5FE4C /* SongsViewController.swift in Sources */,
-				20F118C821F4BD8A00C20B33 /* ViewController.swift in Sources */,
 				20BEEBEA21F5701000C5FE4C /* SongsModel.swift in Sources */,
 				20F1190321F4C5AA00C20B33 /* PlaylistPresenter.swift in Sources */,
 				20F1190121F4C59A00C20B33 /* PlaylistModel.swift in Sources */,
