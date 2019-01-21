@@ -111,6 +111,12 @@ class Manager: NSObject {
         
         return songs
     }
+    
+    func getFormattedVideoTime(totalVideoDuration: Int) -> ( minutes: Int, seconds: Int){
+        let seconds = totalVideoDuration % 60
+        let minutes = (totalVideoDuration / 60) % 60
+        return (minutes,seconds)
+    }
 }
 
 

@@ -28,5 +28,9 @@ class SongsPresenter {
             }
         })
     }
+    
+    func getFormattedTime(totalTime:Int)->(minutes:Int,seconds:Int){
+       return Manager.instance.getFormattedVideoTime(totalVideoDuration: totalTime)
+    }
 
 }

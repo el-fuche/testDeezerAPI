@@ -33,10 +33,9 @@ class SongsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //        cell.
         cell.textLabel?.text = songs[indexPath.row].title
-        cell.detailTextLabel?.text = String(songs[indexPath.row].duration)
-        //        cell.
+        let formattedTime = presenter.getFormattedTime(totalTime: songs[indexPath.row].duration)
+        cell.detailTextLabel?.text = String("\(formattedTime.minutes) mn \(formattedTime.seconds)")
         return cell
     }
     
